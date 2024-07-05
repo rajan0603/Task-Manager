@@ -4,7 +4,7 @@
   "description": "task-management-backend",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "jest"
   },
   "author": "rajan",
   "license": "ISC",
@@ -14,7 +14,10 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "jest": "^29.7.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.4.4"
+    "mongodb-memory-server": "^9.4.0",
+    "mongoose": "^8.4.4",
+    "supertest": "^7.0.0"
   }
 }

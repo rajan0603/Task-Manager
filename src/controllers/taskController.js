@@ -3,7 +3,7 @@ const taskServices = require("../services/taskService");
 
 const createTask = async (req,res) => {
     try{
-    const {title, description, isCompleted, priority} = req.body;
+    const {title, description, dueDate, isCompleted, priority} = req.body;
     const userId = req.user.id;
     const task = await taskServices.createTask({
         title,

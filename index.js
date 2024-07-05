@@ -17,14 +17,19 @@ app.options("*", cors());
 app.use("/api/auth" , authRoutes);
 app.use("/api/tasks", taskRoutes);
 
-app.use("/", (req,res) => {
-    res.send("server is running...");
-});
+// app.use("/", (req,res) => {
+//     res.send("server is running...");
+//     res.end();
+// });
 
-mongoose.connect(URI)
-.then(() => console.log(`connect to mongodb ${URI}`))
-.catch((error) => console.log("get error",error));
+if (process.env.NODE_ENV !== 'test') {
+    mongoose.connect(URI)
+    .then(() => console.log(`connect to mongodb ${URI}`))
+    .catch((error) => console.log("get error",error));
 
-app.listen(PORT, () => {
-    console.log("connect to port",PORT)
-});
+    app.listen(PORT, () => {
+        console.log("Server is running on port", PORT);
+    });
+}
+
+module.exports = app;
